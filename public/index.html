@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLASH SELL - Top Up Termurah Se-Dunia</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav>
+        <div class="logo"><i class="fas fa-bolt"></i> FLASH SELL</div>
+        <div class="menu">
+            <a href="#" class="active">Beranda</a>
+            <a href="#games">Top Up Game</a>
+            <a href="#pulsa">Pulsa</a>
+            <a href="#contact">Hubungi Admin</a>
+        </div>
+    </nav>
+
+    <!-- HERO & SEARCH -->
+    <header class="hero">
+        <h1>TOP UP GAME & PULSA</h1>
+        <p>Proses Detik, Harga Pabrik, 24 Jam Nonstop</p>
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="Cari Game, Voucher, atau Pulsa..." onkeyup="filterProducts()">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <div class="container">
+        
+        <!-- GAMES SECTION -->
+        <h2 class="section-header"><i class="fas fa-gamepad"></i> Game Populer</h2>
+        <div id="game-list" class="grid-container">
+            <!-- Data dari API akan muncul disini -->
+             <div class="loading">Memuat Data Game...</div>
+        </div>
+
+        <!-- PULSA SECTION -->
+        <h2 class="section-header" id="pulsa"><i class="fas fa-sim-card"></i> Pulsa & Data</h2>
+        <div id="pulsa-list" class="grid-container">
+            <!-- Data dari API akan muncul disini -->
+        </div>
+
+    </div>
+
+    <!-- MODAL POPUP (Checkout) -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modal-title">Detail Pesanan</h2>
+            
+            <form id="orderForm" onsubmit="submitOrder(event)">
+                <div class="form-group">
+                    <label>User ID / Nomor HP</label>
+                    <input type="text" id="userId" placeholder="Contoh: 12345678 (Server 1234)" required>
+                </div>
+
+                <label>Pilih Item</label>
+                <div id="modal-items" class="item-grid"></div>
+
+                <label>Metode Pembayaran</label>
+                <div class="payment-methods">
+                    <div class="pay-opt" onclick="selectPay(this, 'DANA')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/72/Logo_dana_blue.svg/1200px-Logo_dana_blue.svg.png"> DANA</div>
+                    <div class="pay-opt" onclick="selectPay(this, 'GOPAY')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/2560px-Gopay_logo.svg.png"> GoPay</div>
+                    <div class="pay-opt" onclick="selectPay(this, 'QRIS')"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/ddee/QRIS_logo.svg/1200px-QRIS_logo.svg.png"> QRIS</div>
+                </div>
+                <input type="hidden" id="selectedSku">
+                <input type="hidden" id="selectedMethod">
+
+                <button type="submit" class="btn-buy">BELI SEKARANG</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- GOOGLE ASSISTANT WIDGET -->
+    <div class="google-widget">
+        <div class="chat-box" id="chatBox">
+            <div class="chat-header">Asisten Flash Sell (Google AI)</div>
+            <div class="chat-body" id="chatBody">
+                <div class="msg bot">Halo! Ada yang bisa saya bantu tentang Top Up?</div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chatInput" placeholder="Ketik pertanyaan...">
+                <button onclick="sendChat()">Kirim</button>
+            </div>
+        </div>
+        <button class="chat-toggle" onclick="toggleChat()"><i class="fab fa-google"></i></button>
+    </div>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+        <p>&copy; 2024 FLASH SELL - All Rights Reserved.</p>
+        <div class="socials">
+            <i class="fab fa-whatsapp"></i>
+            <i class="fab fa-instagram"></i>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
