@@ -1,0 +1,104 @@
+:root {
+    --primary: #FFD700; /* Warna Emas/Kuning Flash */
+    --bg: #0f0f12;
+    --card: #1e1e24;
+    --text: #ffffff;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 5%;
+    background: #000;
+    align-items: center;
+    border-bottom: 2px solid var(--primary);
+}
+
+.logo { font-size: 24px; font-weight: bold; color: var(--primary); }
+.menu a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+.menu a:hover { color: var(--primary); }
+
+.hero {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://source.unsplash.com/1600x900/?gaming');
+    background-size: cover;
+}
+
+.search-container input {
+    padding: 15px;
+    width: 60%;
+    border-radius: 30px 0 0 30px;
+    border: none;
+    outline: none;
+}
+.search-container button {
+    padding: 15px 30px;
+    border-radius: 0 30px 30px 0;
+    border: none;
+    background: var(--primary);
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.container { padding: 40px 5%; }
+.section-header { border-left: 5px solid var(--primary); padding-left: 15px; margin-bottom: 30px; }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.3s;
+    border: 1px solid transparent;
+}
+.card:hover { transform: translateY(-5px); border-color: var(--primary); }
+.card img { width: 100%; height: 120px; object-fit: cover; }
+.card-info { padding: 15px; text-align: center; }
+.card-title { font-weight: bold; display: block; margin-bottom: 5px; }
+.card-dev { font-size: 12px; color: #aaa; }
+
+/* Modal */
+.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; }
+.modal-content { background: var(--card); margin: 5% auto; padding: 20px; width: 90%; max-width: 500px; border-radius: 10px; border: 2px solid var(--primary); }
+.close { float: right; cursor: pointer; font-size: 24px; }
+
+.form-group { margin-bottom: 15px; }
+.form-group input { width: 100%; padding: 10px; box-sizing: border-box; background: #333; border: 1px solid #555; color: white; }
+
+.item-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 20px; }
+.item-opt { background: #2a2a35; padding: 10px; cursor: pointer; border: 1px solid #444; text-align: center; border-radius: 5px; }
+.item-opt:hover, .item-opt.selected { background: var(--primary); color: black; border-color: var(--primary); }
+
+.payment-methods { display: flex; gap: 10px; margin-bottom: 20px; }
+.pay-opt { flex: 1; background: white; color: black; padding: 10px; border-radius: 5px; cursor: pointer; text-align: center; font-size: 12px; display: flex; flex-direction: column; align-items: center; }
+.pay-opt img { height: 20px; margin-bottom: 5px; }
+.pay-opt.selected { border: 2px solid var(--primary); background: #eee; }
+
+.btn-buy { width: 100%; background: var(--primary); border: none; padding: 15px; font-weight: bold; cursor: pointer; font-size: 16px; border-radius: 5px; }
+
+/* Chat Widget */
+.google-widget { position: fixed; bottom: 20px; right: 20px; z-index: 2000; }
+.chat-toggle { width: 60px; height: 60px; border-radius: 50%; background: white; color: #4285f4; font-size: 24px; border: none; box-shadow: 0 4px 10px rgba(0,0,0,0.5); cursor: pointer; }
+.chat-box { display: none; width: 300px; background: white; color: black; border-radius: 10px; position: absolute; bottom: 70px; right: 0; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+.chat-header { background: #4285f4; color: white; padding: 10px; font-weight: bold; }
+.chat-body { height: 200px; padding: 10px; overflow-y: auto; background: #f1f1f1; display: flex; flex-direction: column; gap: 5px; }
+.msg { padding: 5px 10px; border-radius: 10px; max-width: 80%; font-size: 14px; }
+.msg.bot { background: white; align-self: flex-start; }
+.msg.user { background: #d2e3fc; align-self: flex-end; }
+.chat-input { display: flex; border-top: 1px solid #ddd; }
+.chat-input input { flex: 1; border: none; padding: 10px; outline: none; }
+.chat-input button { border: none; background: #4285f4; color: white; padding: 0 15px; cursor: pointer; }
